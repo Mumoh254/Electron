@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenyan Time Display</title>
+     <style>
+        p{
+            color: red;
+            font-family:  "poppins";
+        }
+     </style>
+</head>
+<body>
+   
+    <p id="time">Loading...</p>
+
+    <script>
+        function updateKenyanTime() {
+            const options = {
+                timeZone: 'Africa/Nairobi', 
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+
+            const currentTime = new Date();
+            const timeInKenya = new Intl.DateTimeFormat('en-US', options).format(currentTime);
+
+            document.getElementById('time').innerText = `Time: ${timeInKenya}`;
+        }
+
+
+        setInterval(updateKenyanTime, 1000);
+
+    
+        updateKenyanTime();
+    </script>
+</body>
+</html>
